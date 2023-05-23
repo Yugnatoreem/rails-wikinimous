@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-between m-3">
+  <div class="border p-2 border.ra rounded bg-secondary-subtle"><h1>Wikipedia</h1></div>
+  <%= link_to "Create a new article", new_article_path, class: "btn btn-primary shadow bg-body-tertiary rounded mt-2 mb-2 rounded-pill"%>
+</div>
+
+<div class="m-3">
+  <% @articles.each do |article| %>
+    <%= link_to article_path(article) do %>
+      <div class="card">
+        <div class="card-title">
+          <%= article.title %>
+          <%= link_to "", article_path(article), data: { turbo_method: :delete }, class: "delete-btn fa-solid fa-trash none" %>
+        </div>
+        <%= article.content %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

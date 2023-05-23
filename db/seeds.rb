@@ -3,5 +3,13 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+ #  articles = Article.create([{ title: Faker, content:}, { content: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+articles = []
+
+10.times do
+  articles << { title: Faker::Book.title, content: Faker::Lorem.paragraph(sentence_count: 25) }
+end
+
+Article.create(articles)
